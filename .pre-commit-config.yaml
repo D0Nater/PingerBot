@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.5.0"
+    hooks:
+      - id: poetry-check
+        name: poetry check
+  - repo: local
+    hooks:
+      - id: make-format
+        name: make format
+        entry: poetry run make format
+        language: system
+        pass_filenames: false
+        files: ^.*\.py$
+      - id: make-lint
+        name: make lint
+        entry: poetry run make lint
+        language: system
+        pass_filenames: false
+        files: ^.*\.py$

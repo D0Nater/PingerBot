@@ -1,0 +1,3 @@
+# PingerBot
+
+Telegram pinger bot
