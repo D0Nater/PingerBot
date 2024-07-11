@@ -5,13 +5,41 @@ description = "Telegram pinger bot"
 authors = ["D0Nater <denaddressforwork@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+pinger = "pinger.__main__:main"
+
 [tool.poetry.dependencies]
 python = "^3.12"
 aiogram = "^3.10.0"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.3.4"
 
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^3.7.1"
+types-click = "^7.1.8" # For Click mypy support
+black = "^24.3.0" # Code formatter
+isort = "^5.12.0" # Import sorting
+flake8 = "^7.0.0" # Linter
+flake8-docstrings = "^1.6.0" # Docstring linter
+mypy = "^1.10.0" # Static type checking
+pre-commit = "^3.7.1" # Git pre commit hooks
+
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.isort]
+line_length = 120
+atomic = true
+include_trailing_comma = true
+use_parentheses = true
+profile = "black"
+lines_before_imports = 1
+lines_after_imports = 2
+combine_as_imports = true
+multi_line_output = 3
+
 
 [build-system]
 requires = ["poetry-core"]
