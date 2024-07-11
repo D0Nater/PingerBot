@@ -32,7 +32,6 @@ FROM base AS source
 
 RUN mkdir -p /app
 WORKDIR /app
-COPY deployment/entrypoint.sh /app/bin/
 COPY pinger /app/pinger
 COPY pyproject.toml /app
 RUN chmod -R +x /app/bin
