@@ -34,7 +34,6 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY pinger /app/pinger
 COPY pyproject.toml /app
-RUN chmod -R +x /app/bin
 COPY README.md /app/README.md
 
 
